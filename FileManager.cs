@@ -25,7 +25,7 @@ public class FileManager
             {
                 while (!reader.EndOfStream)
                 {
-                    var line = reader.ReadLine().Split(",");
+                    string[] line = reader.ReadLine()?.Split(",") ?? throw new Exception("corrupt data");
                     var student = new Student(line.First(), DateTime.Parse(line.Last()));
                     studentList.Add(student);
 

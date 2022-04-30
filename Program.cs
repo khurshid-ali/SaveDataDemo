@@ -23,19 +23,12 @@ do
         case "a":
             Console.Clear();
             Console.Write("Enter students name, date of birth (e.g. John Doe, 2018/06/22) :> ");
-            try
-            {
-                var studentEntry = Console.ReadLine() ?? "";
-                var entries = studentEntry.Split(",").ToList<string>();
-                var name = entries[0];
-                var dob = DateTime.Parse(entries[1]);
-                students.Add(new Student(name, dob));
-                Console.WriteLine("Student {0} has been added.", name);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Invalid entry. Error:{0}", e.Message);
-            }
+            var studentEntry = Console.ReadLine() ?? "";
+            var entries = studentEntry.Split(",").ToList<string>();
+            var name = entries[0];
+            var dob = DateTime.Parse(entries[1]);
+            students.Add(new Student(name, dob));
+            Console.WriteLine("Student {0} has been added.", name);
             break;
 
         case "l":
